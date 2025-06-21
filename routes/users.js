@@ -9,11 +9,12 @@
 // module.exports = router;
 
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://127.0.1:27017/GenByAuto")
+mongoose.connect("mongodb://127.0.1:27017/bsicalu")
 
-mongoose.Schema({
+const usersSchema = mongoose.Schema({
   name: String,
   email: String,
-  password: String,
-  createdAt: { type: Date, default: Date.now }
+  password: String
 })
+
+module.exports = mongoose.model('users', usersSchema);

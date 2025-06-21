@@ -1,9 +1,19 @@
 var express = require('express');
 var router = express.Router();
+const usersModel = require('./users')
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 });
+
+router.get('/create', async function (req, res) {
+  const createdUser = await usersModel.create({
+    name: 'shakil',
+    email: 'shahidul@gmail.com',
+    password: '12345678',
+  })
+  res.send(createdUser);
+})
 
 module.exports = router;
