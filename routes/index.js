@@ -16,4 +16,9 @@ router.get('/create', async function (req, res) {
   res.send(createdUser);
 })
 
+router.get('/find', async function (req, res) {
+  const allUsers = await usersModel.find();
+  res.send(allUsers)
+})
+
 module.exports = router;
