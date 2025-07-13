@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 app.use(session({
   resave: false,
   saveUninitialized: false,
-  secret: 'fucking secret',
+  secret: 'no bed words',
 }))
 
 app.use(logger('dev'));
