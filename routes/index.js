@@ -26,21 +26,31 @@ router.get('/find', async function (req, res) {
 //   res.send(deletedUser);
 // })
 
-router.get('/banned', function(req, res){
-  req.session.banned = true;
-  res.send('index')
+// router.get('/banned', function(req, res){
+//   req.session.banned = true;
+//   res.send('index')
+// })
+
+// router.get('/checkBanned', async function(req, res){
+//   console.log(req.session);
+//   res.send(req.session.banned ? 'You are banned' : 'You are not banned');
+// })
+
+// router.get('/removeBanned', (req, res) =>{
+//   req.session.destroy((err)=>{
+//     if(err) throw err;
+//     res.send('index');
+//   })
+// })
+
+router.get('/cooked', (req, res) => {
+  res.cookie("chef is name", "shakil")
+  res.render('index')
 })
 
-router.get('/checkBanned', async function(req, res){
-  console.log(req.session);
-  res.send(req.session.banned ? 'You are banned' : 'You are not banned');
-})
-
-router.get('/removeBanned', (req, res) =>{
-  req.session.destroy((err)=>{
-    if(err) throw err;
-    res.send('index');
-  })
+router.get('/chef', (req, res) => {
+  console.log(req.cookies);
+  res.send(req.cookies);
 })
 
 
